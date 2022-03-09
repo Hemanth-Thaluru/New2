@@ -1,0 +1,79 @@
+﻿@model IEnumerable<CustomerMicroService.Model.Loan>
+
+
+@{ Layout = "~/Views/Shared/_CustomerLayout.cshtml"; }
+
+
+<html>
+
+<body class="">
+    <table style="width:100%" class="table table-bordered table-hover">
+        <thead style="background-color: #2b6dad" class="text-white">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerId)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Loan_Id)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GoldWeight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CurrentStatus)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+
+    <td>
+        <a asp-controller="CustomerDetails" asp-action="Index">
+            @Html.DisplayFor(modelItem => item.CustomerId)
+        </a>
+    </td>
+    <td>
+        <a asp-controller="GetAccount">
+            @Html.DisplayFor(modelItem => item.Loan_Id)
+        </a>
+    </td>
+    <td>
+        <a asp-controller="CustomerDetails" asp-action="Index">
+            @Html.DisplayFor(modelItem => item.GoldWeight)
+        </a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Amount)
+    </td>
+    <td class="align-content-sm-center">
+        <div>
+            @if (item.Pending == false && item.CurrentStatus==false)
+            {
+        <a class="btn btn-outline-warning"> Pending</a>}
+            @if (item.Pending == true && item.CurrentStatus==true)
+            {
+                <a class="btn btn-outline-success"> Accepted</a> }
+            @if(item.Pending==true && item.CurrentStatus==false )
+            {
+        <a class="btn btn-outline-danger"> Rejected</a>}
+
+            @*<a class="btn btn-outline-danger" asp-controller="LoanUI" asp-action="Reject" asp-route-CustomerId="@item.CustomerId"> Reject</a>*@
+
+        </div>
+
+    </td>
+
+
+</tr>}
+        </tbody>
+    </table>
+</body>
+</html>

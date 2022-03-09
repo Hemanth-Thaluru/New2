@@ -1,0 +1,68 @@
+﻿@model CustomerMicroService.Model.Customer
+
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<body class="">
+    <table style="width:100%" class="table table-bordered table-hover">
+        <thead style="background-color: #2b6dad" class="text-white">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerId)
+                    
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                  
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MobileNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PAN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DOB)
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => Model.CustomerId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.MobileNo)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.PAN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.DOB)
+    </td>
+    
+
+</tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model Retail_Bank_UI.Models.LogIn
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/Mysite.css" />
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="~/images/SRF logo2.jpg" id="icon" alt="User Icon" style="transform:translateY(-6)" />
+        </div>
+
+        <!-- Login Form -->
+        @*<form method="post" asp-action="Login">
+               <div class="form-group">
+                   <input type="text" id="login" asp-for="UserId" class="fadeIn second" name="login" placeholder="User Id">
+                   <input type="text" id="password" asp-for="Password" class="fadeIn third" name="login" placeholder="Password">
+                   <input type="submit" class="fadeIn fourth" value="Log In">
+               </div>
+            </form>*@
+
+    <form method="post">
+        <div class="form-group container">
+            <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Username" aria-describedby="emailHelp" placeholder="User Id">
+        </div>
+        <div class="form-group container">
+            <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Password" aria-describedby="emailHelp" placeholder="Password">
+        </div>
+        <div class="form-group container">
+            <select class="custom-select" asp-for="LogInType" >
+                <option value="Admin">Admin</option>
+                <option value="Customer">Customer</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>

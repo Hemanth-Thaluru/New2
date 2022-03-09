@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TransactionMicroservice.Models.Statement>
+
+@{ ViewData["Title"] = "Index";
+                Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+
+
+<table style="width:100%" class="table table-bordered table-hover">
+    <thead style="background-color: #2b6dad" class="text-white">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StatementId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Narration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfTransaction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClosingBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>
+                <a asp-controller="CustomerDetails" asp-action="Index">
+                    @Html.DisplayFor(modelItem => item.StatementId)
+                </a>
+            </td>
+            <td>
+                <a asp-controller="GetAccount">
+                    @Html.DisplayFor(modelItem => item.AccountId)
+                </a>
+            </td>
+            <td>
+                <a asp-controller="CustomerDetails" asp-action="Index">
+                    @Html.DisplayFor(modelItem => item.Narration)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfTransaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+
+
+        </tr>}
+    </tbody>
+</table>

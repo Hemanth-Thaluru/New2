@@ -1,0 +1,44 @@
+﻿@model CustomerMicroService.Model.Loan
+
+@{ ViewData["Title"] = "Create Customer";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml"; }
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create Customer</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+
+<h4>
+    <b class="text-success">@ViewData["message"]</b>
+</h4>
+<h4> Create New Customer Account</h4>
+<hr />
+<div class="container ks-container">
+    <div class="col-md-4 justify-content-center">
+        <form asp-action="LoanRequest" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="GoldWeight" class="control-label"></label>
+                <input asp-for="GoldWeight" class="form-control" />
+                <span asp-validation-for="GoldWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
