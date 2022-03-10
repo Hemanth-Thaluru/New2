@@ -6,6 +6,9 @@
 <head>
 
     <style>
+        body {
+            height: 600px;
+        }
         .demo {
             font-family: 'Noto Sans', sans-serif;
         }
@@ -229,7 +232,7 @@
                     <div class="container">
                         <div class="row h-100 justify-content-center align-items-center">
                             <div class="col-md-4">
-                                <form asp-action="Withdraw">
+                                <form asp-action="WithdrawCustomer">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <div class="form-group text-light">
                                         <label asp-for="AccountId" class="control-label"></label>
@@ -238,7 +241,7 @@
                                     </div>
                                     <div class="form-group text-light">
                                         <label asp-for="Amount" class="control-label"></label>
-                                        <input asp-for="Amount" class="form-control" />
+                                        <input asp-for="Amount"  pattern="[0-9]{1,7}" title="Invalid amount" class="form-control" />
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">

@@ -12,10 +12,19 @@ namespace Retail_Bank_UI.Controllers
     public class LoanUIController : Controller
     {
         int cd = CIDAll.cid;
+        static int x;
         public async Task<IActionResult> AllLoans()
         {
             Client client = new Client();
             List<Loan> accounts = new List<Loan>();
+            if(x==1)
+            {
+                ViewData["message"] = "Loan Request Accepted Successfully";
+            }
+            if (x == 2)
+            {
+                ViewData["message"] = "Loan Request Rejected Successfully";
+            }
             try
             {
                 var result = await client.APIClient().GetAsync("http://localhost:5004/api/Loan/getAllLoan");
@@ -46,6 +55,7 @@ namespace Retail_Bank_UI.Controllers
                 if (result.IsSuccessStatusCode)
                 {
                     var data = result.Content.ReadAsStringAsync().Result;
+                    x = 1;
                     return RedirectToAction("AllLoans");
                 }
 
@@ -71,7 +81,9 @@ namespace Retail_Bank_UI.Controllers
                 if (result.IsSuccessStatusCode)
                 {
                     var data = result.Content.ReadAsStringAsync().Result;
+                    x = 2;
                     return RedirectToAction("AllLoans");
+
                 }
 
             }
@@ -103,14 +115,16 @@ namespace Retail_Bank_UI.Controllers
                 var res = await client.APIClient().PostAsJsonAsync("http://localhost:5004/api/Loan/CreateLoan", loanobj);
                 if (res.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("CustomerLoans", "LoanUI");
+                    ViewData["message"] = "Your Loan Request has placed Successfully";
+                    return View();
                 }
-                return RedirectToAction("CustomerLoans", "LoanUI");
+                ViewData["message"] = "Can't place your Loan Request";
+                return View();
             }
             catch (Exception e)
             {
-                ViewData["message"] = e.Message;
-                return RedirectToAction("CustomerLoans","LoanUI");
+                ViewData["message"] = "Can't place your Loan Request";
+               return View();
             }
 
         }

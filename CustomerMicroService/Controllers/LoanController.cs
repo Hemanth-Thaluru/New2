@@ -48,7 +48,7 @@ namespace CustomerMicroService.Controllers
             }
 
             var li = _context.Loans.ToList();
-            Loan lo = li.Find(a => a.CustomerId == customerId);
+            Loan lo = li.Find(a => a.Loan_Id == customerId);
             
             _log4net.Info("Loan history returned for Account Id: " + customerId);
             lo.Pending = true;
@@ -66,7 +66,7 @@ namespace CustomerMicroService.Controllers
             }
 
             var li = _context.Loans.ToList();
-            Loan lo = li.Find(a => a.CustomerId == customerId);
+            Loan lo = li.Find(a => a.Loan_Id == customerId);
 
             _log4net.Info("Loan history returned for Account Id: " + customerId);
             lo.Pending = true;

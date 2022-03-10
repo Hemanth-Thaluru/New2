@@ -7,6 +7,7 @@
 <html>
 
 <body class="">
+    <h1>@ViewData["message"]</h1>
     <table style="width:100%" class="table table-bordered table-hover">
         <thead style="background-color: #2b6dad" class="text-white">
             <tr>
@@ -55,16 +56,24 @@
     </td>
     <td class="align-content-sm-center">
         <div>
-          <a class="btn btn-outline-success"  asp-controller="LoanUI" asp-action="Accept" asp-route-CustomerId="@item.CustomerId" > Accept</a>
-          <a  class="btn btn-outline-danger" asp-controller="LoanUI" asp-action="Reject" asp-route-CustomerId="@item.CustomerId" > Reject</a>
+            <a class="btn btn-outline-success" asp-controller="LoanUI" asp-action="Accept" asp-route-CustomerId="@item.Loan_Id" onclick="return confirm('Are you sure you want to Accept this Loan?');"> Accept</a>
+            <a class="btn btn-outline-danger" asp-controller="LoanUI" asp-action="Reject" asp-route-CustomerId="@item.Loan_Id" onclick="return confirm('Are you sure you want to Reject this Loan?');">Reject</a>
         </div>
-        
+
     </td>
 
 
-</tr>
-}
+</tr>}
         </tbody>
     </table>
+
+    <script>
+        function myFunction() {
+            confirm("Press yes to Accept the Loan!");
+        }
+        function myFunction1() {
+            confirm("Press yes to Reject the Loan!");
+        }
+    </script>
 </body>
 </html>

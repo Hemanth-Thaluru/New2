@@ -228,7 +228,7 @@
                     <div class="container">
                         <div class="row h-100 justify-content-center align-items-center">
                             <div class="col-md-4">
-                                <form asp-action="Transfer">
+                                <form asp-action="TransferCustomer" class="is-valid">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <div class="form-group text-light">
                                         <label asp-for="Source_ACC_ID" class="control-label"></label>
@@ -237,12 +237,12 @@
                                     </div>
                                     <div class="form-group text-light">
                                         <label asp-for="Destination_ACC_ID" class="control-label"></label>
-                                        <input asp-for="Destination_ACC_ID" class="form-control" />
+                                        <input asp-for="Destination_ACC_ID"  pattern="[0-9]{2,7}" title="Invalid Account number" class="form-control" />
                                         <span asp-validation-for="Destination_ACC_ID" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
                                         <label asp-for="Amount" class="control-label"></label>
-                                        <input asp-for="Amount" class="form-control" />
+                                        <input asp-for="Amount"  pattern="[0-9]{1,7}" title="Invalid amount" class="form-control" />
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
