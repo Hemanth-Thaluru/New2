@@ -8,6 +8,9 @@
         .demo {
             font-family: 'Noto Sans', sans-serif;
         }
+        body{
+            height:auto;
+        }
 
         .panel {
             background: linear-gradient(to right, #2980b9, #2c3e50);
@@ -232,17 +235,17 @@
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <div class="form-group text-light">
                                         <label asp-for="Source_ACC_ID" class="control-label"></label>
-                                        <input asp-for="Source_ACC_ID" class="form-control" />
+                                        <input asp-for="Source_ACC_ID" class="form-control"  placeholder="Source Account Number" type="number" min="100" max="1000000" />
                                         <span asp-validation-for="Source_ACC_ID" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
                                         <label asp-for="Destination_ACC_ID" class="control-label"></label>
-                                        <input asp-for="Destination_ACC_ID" class="form-control" />
+                                        <input asp-for="Destination_ACC_ID" class="form-control"  placeholder="Destination Account Number" type="number" min="100" max="1000000" />
                                         <span asp-validation-for="Destination_ACC_ID" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
                                         <label asp-for="Amount" class="control-label"></label>
-                                        <input asp-for="Amount" class="form-control" />
+                                        <input asp-for="Amount" class="form-control" placeholder="Amount in rupees" type="number" min="1" max="500000" />
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
@@ -260,3 +263,7 @@
 
     </div>
 </div>
+
+<br />
+<br />
+<br />

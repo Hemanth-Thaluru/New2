@@ -5,6 +5,7 @@
     height:auto;
 }
 
+
 .navbar-survival101 {
     background-color: #2B6DAD;
 }
@@ -95,7 +96,7 @@ html {
 
 body {
     font-family: "Poppins", sans-serif;
-    height: auto;
+    height: 600px;
 }
 
 a {

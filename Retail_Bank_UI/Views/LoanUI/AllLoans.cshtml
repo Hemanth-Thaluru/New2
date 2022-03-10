@@ -1,79 +1,297 @@
 ﻿@model IEnumerable<CustomerMicroService.Model.Loan>
 
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+<head>
+    <link rel="stylesheet" href="~/css/Mysite.css" />
+    <style>
+        body {
+            height: 600px;
+        }
 
-@{ Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+        .demo {
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        .panel {
+            background: linear-gradient(to right, #2980b9, #2c3e50);
+            padding: 0;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 0 5px rgba(0,0,0,0.05),0 0 0 10px rgba(0,0,0,0.05);
+        }
+
+            .panel .panel-heading {
+                padding: 20px 15px;
+                border-radius: 10px 10px 0 0;
+                margin: 0;
+            }
+
+                .panel .panel-heading .title {
+                    color: #fff;
+                    font-size: 28px;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                    line-height: 40px;
+                    margin: 0;
+                }
+
+                .panel .panel-heading .btn {
+                    color: rgba(255,255,255,0.5);
+                    background: transparent;
+                    font-size: 16px;
+                    text-transform: capitalize;
+                    border: 2px solid #fff;
+                    border-radius: 50px;
+                    transition: all 0.3s ease 0s;
+                }
+
+                    .panel .panel-heading .btn:hover {
+                        color: #fff;
+                        text-shadow: 3px 3px rgba(255,255,255,0.2);
+                    }
+
+                .panel .panel-heading .form-control {
+                    color: #fff;
+                    background-color: transparent;
+                    width: 35%;
+                    height: 40px;
+                    border: 2px solid #fff;
+                    border-radius: 20px;
+                    display: inline-block;
+                    transition: all 0.3s ease 0s;
+                }
+
+                    .panel .panel-heading .form-control:focus {
+                        background-color: rgba(255,255,255,0.2);
+                        box-shadow: none;
+                        outline: none;
+                    }
+
+                    .panel .panel-heading .form-control::placeholder {
+                        color: rgba(255,255,255,0.5);
+                        font-size: 15px;
+                        font-weight: 500;
+                    }
+
+            .panel .panel-body {
+                padding: 0;
+            }
+
+                .panel .panel-body .table thead tr th {
+                    color: #fff;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    font-size: 16px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    padding: 12px;
+                    border: none;
+                }
+
+                .panel .panel-body .table tbody tr td {
+                    color: #fff;
+                    font-size: 15px;
+                    padding: 10px 12px;
+                    vertical-align: middle;
+                    border: none;
+                }
+
+                .panel .panel-body .table tbody tr:nth-child(even) {
+                    background-color: rgba(255,255,255,0.05);
+                }
+
+                .panel .panel-body .table tbody .action-list {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                }
+
+                    .panel .panel-body .table tbody .action-list li {
+                        display: inline-block;
+                        margin: 0 5px;
+                    }
+
+                        .panel .panel-body .table tbody .action-list li a {
+                            color: #fff;
+                            font-size: 15px;
+                            position: relative;
+                            z-index: 1;
+                            transition: all 0.3s ease 0s;
+                        }
+
+                            .panel .panel-body .table tbody .action-list li a:hover {
+                                text-shadow: 3px 3px 0 rgba(255,255,255,0.3);
+                            }
+
+                            .panel .panel-body .table tbody .action-list li a:before,
+                            .panel .panel-body .table tbody .action-list li a:after {
+                                content: attr(data-tip);
+                                color: #fff;
+                                background-color: #111;
+                                font-size: 12px;
+                                padding: 5px 7px;
+                                border-radius: 4px;
+                                text-transform: capitalize;
+                                display: none;
+                                transform: translateX(-50%);
+                                position: absolute;
+                                left: 50%;
+                                top: -32px;
+                                transition: all 0.3s ease 0s;
+                            }
+
+                            .panel .panel-body .table tbody .action-list li a:after {
+                                content: '';
+                                height: 15px;
+                                width: 15px;
+                                padding: 0;
+                                border-radius: 0;
+                                transform: translateX(-50%) rotate(45deg);
+                                top: -18px;
+                                z-index: -1;
+                            }
+
+                            .panel .panel-body .table tbody .action-list li a:hover:before,
+                            .panel .panel-body .table tbody .action-list li a:hover:after {
+                                display: block;
+                            }
+
+            .panel .panel-footer {
+                color: #fff;
+                background-color: transparent;
+                padding: 15px;
+                border: none;
+            }
+
+                .panel .panel-footer .col {
+                    line-height: 35px;
+                }
+
+        .pagination {
+            margin: 0;
+        }
+
+            .pagination li a {
+                color: #fff;
+                background-color: transparent;
+                border: 2px solid transparent;
+                font-size: 18px;
+                font-weight: 500;
+                text-align: center;
+                line-height: 31px;
+                width: 35px;
+                height: 35px;
+                padding: 0;
+                margin: 0 3px;
+                border-radius: 50px;
+                transition: all 0.3s ease 0s;
+            }
+
+                .pagination li a:hover {
+                    color: #fff;
+                    background-color: transparent;
+                    border-color: rgba(255,255,255,0.2);
+                }
+
+                .pagination li a:focus,
+                .pagination li.active a,
+                .pagination li.active a:hover {
+                    color: #fff;
+                    background-color: transparent;
+                    border-color: #fff;
+                }
+
+            .pagination li:first-child a,
+            .pagination li:last-child a {
+                border-radius: 50%;
+            }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="container justify-content-sm-center align-items-center">
+
+            <div class="row align-items-center">
+                <div class="col-md-offset-1 col-md-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col col-sm-3 col-xs-12">
+                                    <h4 class="title">All Loan Requests</h4>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="panel-body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CustomerId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Loan_Id)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.GoldWeight)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Amount)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CurrentStatus)
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                        <tr>
+
+                            <td class="text-center ">
+                                @Html.DisplayFor(modelItem => item.CustomerId)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Loan_Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GoldWeight)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Amount)
+                            </td>
+
+                            <td class="align-content-sm-center">
+                                <div>
+                                    <a class="btn btn-outline-success" asp-controller="LoanUI" asp-action="Accept" asp-route-CustomerId="@item.Loan_Id" onclick="return confirm('Are you sure you want to Accept this Loan?');"> Accept</a>
+                                    <a class="btn btn-outline-danger" asp-controller="LoanUI" asp-action="Reject" asp-route-CustomerId="@item.Loan_Id" onclick="return confirm('Are you sure you want to Reject this Loan?');">Reject</a>
+                                </div>
+
+                            </td>
 
 
-<html>
+                        </tr>
+}
+                                </tbody>
+                            </table>
+                        </div>
 
-<body class="">
-    <h1>@ViewData["message"]</h1>
-    <table style="width:100%" class="table table-bordered table-hover">
-        <thead style="background-color: #2b6dad" class="text-white">
-            <tr>
+                    </div>
+                </div>
+            </div>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerId)
-
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Loan_Id)
-
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.GoldWeight)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Amount)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CurrentStatus)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-<tr>
-
-    <td>
-        <a asp-controller="CustomerDetails" asp-action="Index">
-            @Html.DisplayFor(modelItem => item.CustomerId)
-        </a>
-    </td>
-    <td>
-        <a asp-controller="GetAccount">
-            @Html.DisplayFor(modelItem => item.Loan_Id)
-        </a>
-    </td>
-    <td>
-        <a asp-controller="CustomerDetails" asp-action="Index">
-            @Html.DisplayFor(modelItem => item.GoldWeight)
-        </a>
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Amount)
-    </td>
-    <td class="align-content-sm-center">
-        <div>
-            <a class="btn btn-outline-success" asp-controller="LoanUI" asp-action="Accept" asp-route-CustomerId="@item.Loan_Id" onclick="return confirm('Are you sure you want to Accept this Loan?');"> Accept</a>
-            <a class="btn btn-outline-danger" asp-controller="LoanUI" asp-action="Reject" asp-route-CustomerId="@item.Loan_Id" onclick="return confirm('Are you sure you want to Reject this Loan?');">Reject</a>
         </div>
-
-    </td>
-
-
-</tr>}
-        </tbody>
-    </table>
-
-    <script>
-        function myFunction() {
-            confirm("Press yes to Accept the Loan!");
-        }
-        function myFunction1() {
-            confirm("Press yes to Reject the Loan!");
-        }
-    </script>
+    </div>
 </body>
-</html>
+
+
+<script>
+    function myFunction() {
+        confirm("Press yes to Accept the Loan!");
+    }
+    function myFunction1() {
+        confirm("Press yes to Reject the Loan!");
+    }
+</script>

@@ -8,6 +8,9 @@
         .demo {
             font-family: 'Noto Sans', sans-serif;
         }
+        body{
+            height:auto;
+        }
 
         .panel {
             background: linear-gradient(to right, #2980b9, #2c3e50);
@@ -222,7 +225,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                  
                                     <th>
                                         @Html.DisplayNameFor(model => model.CustomerId)
                                     </th>
@@ -244,9 +247,9 @@
                                 @foreach (var item in Model)
                                 {
                             <tr>
-                                <td>#</td>
-                                <td>
-                                    <a asp-controller="CustomerDetails" asp-action="Index" asp-route-CustomerId="@item.CustomerId">
+                             
+                                <td class="text-center">
+                                    <a asp-controller="CustomerDetails" asp-action="Index" asp-route-CustomerId="@item.CustomerId" class=" text-light">
                                         @Html.DisplayFor(modelItem => item.CustomerId)
                                     </a>
                                 </td>
