@@ -9,5 +9,6 @@ namespace Retail_Bank_UI
     {
 
         public static int cid;
+        public static string cname;
     }
 }
