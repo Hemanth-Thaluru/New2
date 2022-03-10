@@ -152,7 +152,7 @@ namespace TransactionMicroservice.Repository
                         {
                             trans.source_balance = acc.Balance + amount;
                             trans.destination_balance = acc.Balance;
-                            trans.Message = $"₹ {amount} has been debited.";
+                            trans.Message = $"₹ {amount} has been sucessfully debited.";
                             TransactionHistory th = new TransactionHistory
                             {
                                 AccountId = AccountId,
@@ -169,7 +169,7 @@ namespace TransactionMicroservice.Repository
                         }
                         else
                         {
-                            trans.Message = $"₹{amount} Can't be Withdrawl";
+                            trans.Message = $"Whoops ₹ {amount} Can't be Withdrawl";
                             trans.source_balance = 0;
                             trans.destination_balance = 0;
 
@@ -180,7 +180,7 @@ namespace TransactionMicroservice.Repository
                 }
                 else
                 {
-                    trans.Message = "You Dont have enough balance";
+                    trans.Message = "You Dont have enough balance!!!";
                     trans.source_balance = 0;
                     trans.destination_balance = 0;
 

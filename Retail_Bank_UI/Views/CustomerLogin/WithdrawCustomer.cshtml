@@ -1,7 +1,7 @@
 ﻿@model TransactionMicroservice.Models.Deposit
 
 @{ ViewData["Title"] = "Withdraw";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml"; }
 
 <head>
 
@@ -223,7 +223,7 @@
                     <div class="align-items-center text-center">
                         <h4 class="text-light">@ViewData["message"]</h4>
                     </div>
-                    
+
                     <hr />
 
                     <div class="container">
@@ -233,7 +233,7 @@
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <div class="form-group text-light">
                                         <label asp-for="AccountId" class="control-label"></label>
-                                        <input asp-for="AccountId" class="form-control" />
+                                        <input asp-for="AccountId" class="form-control" readonly />
                                         <span asp-validation-for="AccountId" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
@@ -242,7 +242,7 @@
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
-                                        <input type="submit" value="Withdraw" class="btn btn-sm border border-light"  />
+                                        <input type="submit" value="Withdraw" class="btn btn-sm border border-light" />
                                     </div>
                                 </form>
                             </div>

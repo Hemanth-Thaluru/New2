@@ -26,9 +26,7 @@
                         <li class="nav-item active ">
                             <a class="nav-link" asp-area="" asp-controller="CustomerLogin" asp-action="Index">My Account</a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" asp-area="" asp-controller="TransactionView" asp-action="GetStatement">Statement</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="LoanUI" asp-action="LoanRequest">Loan Requests</a>
                         </li>
@@ -36,13 +34,16 @@
                             <a class="nav-link" asp-area="" asp-controller="LoanUI" asp-action="CustomerLoans">Loan Status</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" asp-area="" asp-controller="TransactionView" asp-action="Deposit">Deposit</a>
+                            <a class="nav-link" asp-area="" asp-controller="CustomerLogin" asp-action="DepositCustomer">Deposit</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" asp-area="" asp-controller="TransactionView" asp-action="Withdraw">Withdraw</a>
+                            <a class="nav-link" asp-area="" asp-controller="CustomerLogin" asp-action="WithdrawCustomer">Withdraw</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" asp-area="" asp-controller="TransactionView" asp-action="Transfer">Transfer</a>
+                            <a class="nav-link" asp-area="" asp-controller="CustomerLogin" asp-action="TransferCustomer">Transfer</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" asp-area="" asp-controller="CustomerLogin" asp-action="GetStatementCustomer">Statement</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" asp-area="" asp-controller="LogIn" asp-action="Index">Logout</a>
@@ -60,12 +61,15 @@
         <main role="main">
             <div class="border-dark" style="height:80px">
                 <br />
-                <h3><b> Haiiii </b></h3>
-            </div>
-            @RenderBody()
-            <div style="height:40px">
+                <div>
+                    <h4 style="text-align: right; color: #2b6dad;"><b> Welcome Customer @TempData["UserName"] </b></h4>
+                </div>
 
             </div>
+          
+
+            @RenderBody()
+         
 
         </main>
     </div>

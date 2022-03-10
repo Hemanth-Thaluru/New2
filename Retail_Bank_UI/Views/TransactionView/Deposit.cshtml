@@ -222,7 +222,10 @@
 
 
 
-                    <h4>@ViewData["message"]</h4>
+                    <div class="align-items-center text-center">
+                        <h4 class="text-light">@ViewData["message"]</h4>
+                    </div>
+
                     <hr />
 
 
@@ -242,7 +245,7 @@
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
-                                        <input type="submit" value="Deposit" class="btn btn-lg btn-dark" />
+                                        <input type="submit" value="Withdraw" class="btn btn-sm border border-light" />
                                     </div>
                                 </form>
                             </div>

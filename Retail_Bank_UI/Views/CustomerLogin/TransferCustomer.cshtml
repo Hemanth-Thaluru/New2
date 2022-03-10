@@ -1,8 +1,7 @@
-﻿@model TransactionMicroservice.Models.Deposit
+﻿@model TransactionMicroservice.Models.Transfer
 
-@{ ViewData["Title"] = "Withdraw";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
-
+@{ ViewData["Title"] = "Transfer";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml"; }
 <head>
 
     <style>
@@ -205,8 +204,8 @@
     </style>
 </head>
 
-<div class="justify-content-center align-items-center">
-    <div class="justify-content-center align-items-center">
+<div>
+    <div>
 
         <div class="row align-items-center">
             <div class="col-md-offset-1 col-md-12">
@@ -214,7 +213,8 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col text-light">
-                                <h1 class="text-center">Withdraw</h1>
+                                <h1 class="text-center">Transfer</h1>
+
                             </div>
 
                         </div>
@@ -223,18 +223,22 @@
                     <div class="align-items-center text-center">
                         <h4 class="text-light">@ViewData["message"]</h4>
                     </div>
-                    
-                    <hr />
 
+                    <hr />
                     <div class="container">
                         <div class="row h-100 justify-content-center align-items-center">
                             <div class="col-md-4">
-                                <form asp-action="Withdraw">
+                                <form asp-action="Transfer">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <div class="form-group text-light">
-                                        <label asp-for="AccountId" class="control-label"></label>
-                                        <input asp-for="AccountId" class="form-control" />
-                                        <span asp-validation-for="AccountId" class="text-danger"></span>
+                                        <label asp-for="Source_ACC_ID" class="control-label"></label>
+                                        <input asp-for="Source_ACC_ID" class="form-control" />
+                                        <span asp-validation-for="Source_ACC_ID" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group text-light">
+                                        <label asp-for="Destination_ACC_ID" class="control-label"></label>
+                                        <input asp-for="Destination_ACC_ID" class="form-control" />
+                                        <span asp-validation-for="Destination_ACC_ID" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
                                         <label asp-for="Amount" class="control-label"></label>
@@ -242,14 +246,13 @@
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
-                                        <input type="submit" value="Withdraw" class="btn btn-sm border border-light"  />
+                                        <input type="submit" value="Transfer" class="btn btn-sm border border-light" />
                                     </div>
                                 </form>
                             </div>
                         </div>
 
                     </div>
-
 
                 </div>
             </div>
