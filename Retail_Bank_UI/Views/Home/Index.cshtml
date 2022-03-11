@@ -11,11 +11,14 @@
     <div class="row ">
         <div class="col-lg-9"><img class="img-fluid rounded mb-4 mb-lg-0" src="~/images/b1.jpg" alt="..." /></div>
         <div class="col-lg-3">
-            <a class="btn btn-outline-primary btn-lg mx-3 my-1" href="#!">Offer1</a>
-            <a class="btn btn-outline-primary btn-lg mx-3 my-1" href="#!">Offer2</a>
-            <a class="btn btn-outline-primary btn-lg mx-3 my-1" href="#!">Offer3</a>
-            <a class="btn btn-outline-primary btn-lg mx-3 my-1" href="#!">Offer4</a>
-            <a class="btn btn-outline-primary btn-lg mx-3 my-1" href="#!">Offer5</a>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="~/images/gold.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Gold Loan</h5>
+                    
+                    <a asp-controller="Login" asp-action="Index" class="btn btn-primary">Apply For Loan</a>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -61,7 +64,7 @@
                     <h5 class="card-title text-success font-italic font-weight-light">
                         Always
                     </h5>
-                    <p class="card-text">Always use trusted websites </p>
+                    <p class="card-text">Always use trusted and secure websites</p>
                     <a href="#" class="card-link">Read More</a>
                 </div>
             </div>

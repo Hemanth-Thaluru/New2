@@ -14,10 +14,10 @@ namespace Retail_Bank_UI.Controllers
 {
     public class CustomerLoginController : Controller
     {
-        
+
         public async Task<IActionResult> Index(int customerId)
         {
-            if(customerId==0)
+            if (customerId == 0)
             {
                 customerId = CIDAll.cid;
             }
@@ -25,7 +25,7 @@ namespace Retail_Bank_UI.Controllers
             List<Account> accounts = new List<Account>();
             try
             {
-                var result = await client.APIClient().GetAsync("https://localhost:44368/api/Account/getCustomerAccount" + "/"+ customerId);
+                var result = await client.APIClient().GetAsync("https://localhost:44368/api/Account/getCustomerAccount" + "/" + customerId);
                 if (result.IsSuccessStatusCode)
                 {
                     var account = result.Content.ReadAsStringAsync().Result;
@@ -64,6 +64,22 @@ namespace Retail_Bank_UI.Controllers
             return acc;
         }
 
+
+        public List<Account> GetAllAccount()
+        {
+            Client client1 = new Client();
+            List<Account> acc = new List<Account>();
+
+            var result = client1.APIClient().GetAsync("https://localhost:44368/api/Account/getAllAccounts/").Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var s = result.Content.ReadAsStringAsync().Result;
+                acc = JsonConvert.DeserializeObject<List<Account>>(s);
+            }
+            return acc;
+        }
+
+
         [HttpPost]
         public IActionResult DepositCustomer(Deposit _deposit)
         {
@@ -98,7 +114,7 @@ namespace Retail_Bank_UI.Controllers
             List<Account> accounts = GetAccountId();
             dp.AccountId = accounts[0].Sav_AccountId;
             return View(dp);
-        
+
         }
         [HttpPost]
         public IActionResult WithdrawCustomer(Deposit _deposit)
@@ -136,25 +152,37 @@ namespace Retail_Bank_UI.Controllers
         public IActionResult TransferCustomer(Transfer transfer)
         {
             TransactionStatus status = new TransactionStatus();
-
-            using (HttpClient client = new HttpClient())
+            List<Account> ac1 = new List<Account>();
+            ac1 = GetAllAccount();
+            foreach (var item in ac1)
             {
-
-                client.BaseAddress = new Uri("http://localhost:5000/api/Transaction/");
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response1 = client.PostAsJsonAsync("Transfer", transfer).Result;
-                if (response1.IsSuccessStatusCode)
+                if (item.Sav_AccountId == transfer.Destination_ACC_ID)
                 {
-                    var s = response1.Content.ReadAsStringAsync().Result;
-                    status = JsonConvert.DeserializeObject<TransactionStatus>(s);
-                    ViewData["message"] = status.Message;
+                    using (HttpClient client = new HttpClient())
+                    {
+
+                        client.BaseAddress = new Uri("http://localhost:5000/api/Transaction/");
+                        client.DefaultRequestHeaders.Clear();
+                        client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                        HttpResponseMessage response1 = client.PostAsJsonAsync("Transfer", transfer).Result;
+                        if (response1.IsSuccessStatusCode)
+                        {
+                            var s = response1.Content.ReadAsStringAsync().Result;
+                            status = JsonConvert.DeserializeObject<TransactionStatus>(s);
+                            ViewData["message"] = status.Message;
 
 
+                        }
+                        return View();
+                    }
                 }
-                return View();
             }
+            ViewData["message"] = "Destination account not found !!";
+
+            return View();
+
         }
+    
 
         [HttpGet]
         public IActionResult GetStatementCustomer()

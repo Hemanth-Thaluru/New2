@@ -8,6 +8,10 @@
         .demo {
             font-family: 'Noto Sans', sans-serif;
         }
+        body{
+            height:auto;
+        }
+
 
         .panel {
             background: linear-gradient(to right, #2980b9, #2c3e50);
@@ -237,12 +241,12 @@
                                     </div>
                                     <div class="form-group text-light is-valid">
                                         <label asp-for="Destination_ACC_ID" class="control-label"></label>
-                                        <input asp-for="Destination_ACC_ID"  pattern="[0-9]{2,7}" min="100" max="10000000" type="number" title="Invalid Account number" class="form-control" />
+                                        <input asp-for="Destination_ACC_ID"  pattern="[0-9]{2,7}" min="100"  type="number" title="Invalid Account number" class="form-control" />
                                         <span asp-validation-for="Destination_ACC_ID" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light ">
                                         <label asp-for="Amount" class="control-label"></label>
-                                        <input asp-for="Amount"  pattern="[0-9]{1,7}" title="Invalid amount" class="form-control" />
+                                        <input asp-for="Amount"  pattern="[0-9]{1,7}" type="number" min="1" title="Invalid amount" class="form-control" />
                                         <span asp-validation-for="Amount" class="text-danger"></span>
                                     </div>
                                     <div class="form-group text-light">
@@ -260,3 +264,6 @@
 
     </div>
 </div>
+<br />
+<br />
+<br />

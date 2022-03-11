@@ -19,6 +19,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetailBankAPIGateway", "Ret
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retail_Bank_UI", "Retail_Bank_UI\Retail_Bank_UI.csproj", "{BABBFB53-48C6-4BC2-AEAD-3CD8B5DB1D9F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{94D0F3D5-BE33-40DE-B27A-8B39AE969A85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountTest", "..\..\..\Codes\GIthub\Retail-Banking-System-master  2nd\Retail-Banking-System-master\AccountTest\AccountTest.csproj", "{DCDF277F-9F32-4E30-8FE8-746E568D2891}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerTest", "..\..\..\Codes\GIthub\Retail-Banking-System-master  2nd\Retail-Banking-System-master\CustomerTest\CustomerTest.csproj", "{E031AE81-2007-440B-8A5E-4AFA31738374}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulesMicroservice.Test", "..\..\..\Codes\GIthub\Retail-Banking-System-master  2nd\Retail-Banking-System-master\RulesMicroservice.Test\RulesMicroservice.Test.csproj", "{37B35CEC-2298-4ED5-AB0D-2767E261F699}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransactionTests", "..\..\..\Codes\GIthub\Retail-Banking-System-master  2nd\Retail-Banking-System-master\TransactionTests\TransactionTests.csproj", "{A276625B-5441-4343-9A76-CCE98CFF4739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +63,22 @@ Global
 		{BABBFB53-48C6-4BC2-AEAD-3CD8B5DB1D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BABBFB53-48C6-4BC2-AEAD-3CD8B5DB1D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BABBFB53-48C6-4BC2-AEAD-3CD8B5DB1D9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDF277F-9F32-4E30-8FE8-746E568D2891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDF277F-9F32-4E30-8FE8-746E568D2891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDF277F-9F32-4E30-8FE8-746E568D2891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDF277F-9F32-4E30-8FE8-746E568D2891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E031AE81-2007-440B-8A5E-4AFA31738374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E031AE81-2007-440B-8A5E-4AFA31738374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E031AE81-2007-440B-8A5E-4AFA31738374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E031AE81-2007-440B-8A5E-4AFA31738374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B35CEC-2298-4ED5-AB0D-2767E261F699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B35CEC-2298-4ED5-AB0D-2767E261F699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B35CEC-2298-4ED5-AB0D-2767E261F699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B35CEC-2298-4ED5-AB0D-2767E261F699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A276625B-5441-4343-9A76-CCE98CFF4739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A276625B-5441-4343-9A76-CCE98CFF4739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A276625B-5441-4343-9A76-CCE98CFF4739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A276625B-5441-4343-9A76-CCE98CFF4739}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +89,10 @@ Global
 		{B1D02254-5B0A-4AEF-83F8-666EA8C35E9D} = {556C6F7B-F8CF-40B0-97DB-FC0C102BFE49}
 		{23154AF7-8A35-4668-A11D-F2E8867EC5A5} = {556C6F7B-F8CF-40B0-97DB-FC0C102BFE49}
 		{C493F50A-ABDF-41B7-A33E-45DBEC312DEF} = {556C6F7B-F8CF-40B0-97DB-FC0C102BFE49}
+		{DCDF277F-9F32-4E30-8FE8-746E568D2891} = {94D0F3D5-BE33-40DE-B27A-8B39AE969A85}
+		{E031AE81-2007-440B-8A5E-4AFA31738374} = {94D0F3D5-BE33-40DE-B27A-8B39AE969A85}
+		{37B35CEC-2298-4ED5-AB0D-2767E261F699} = {94D0F3D5-BE33-40DE-B27A-8B39AE969A85}
+		{A276625B-5441-4343-9A76-CCE98CFF4739} = {94D0F3D5-BE33-40DE-B27A-8B39AE969A85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {720C61B0-F251-4D65-BEC1-DFF86230B208}

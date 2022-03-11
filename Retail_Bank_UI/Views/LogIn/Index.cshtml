@@ -15,15 +15,10 @@
         </div>
 
         <!-- Login Form -->
-        @*<form method="post" asp-action="Login">
-               <div class="form-group">
-                   <input type="text" id="login" asp-for="UserId" class="fadeIn second" name="login" placeholder="User Id">
-                   <input type="text" id="password" asp-for="Password" class="fadeIn third" name="login" placeholder="Password">
-                   <input type="submit" class="fadeIn fourth" value="Log In">
-               </div>
-            </form>*@
+     
 
     <form method="post">
+        <h4 class="text-danger" >@ViewBag.Msg</h4>
         <div class="form-group container">
             <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Username"  pattern="[A-Za-z ]{3,10}" title="Invalid name only plain text with >3 chars acceptable" aria-describedby="emailHelp" placeholder="User Id">
         </div>
@@ -41,8 +36,11 @@
     </form>
 
         <!-- Remind Passowrd -->
-        <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
+        @*<div id="formFooter" class="text-light">
+            <p class="underlineHover" href="#">Forgot Password?</p>
+        </div>*@
+        <div>
+            <p></p>
         </div>
 
     </div>

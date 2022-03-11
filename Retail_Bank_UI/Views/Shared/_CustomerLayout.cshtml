@@ -33,12 +33,12 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="LoanUI" asp-action="CustomerLoans">Loan Status</a>
                         </li>
-                        <li class="nav-item ">
+                        @*<li class="nav-item ">
                             <a class="nav-link" asp-area="" asp-controller="CustomerLogin" asp-action="DepositCustomer">Deposit</a>
-                        </li>
-                        <li class="nav-item ">
+                        </li>*@
+                        @*<li class="nav-item ">
                             <a class="nav-link" asp-area="" asp-controller="CustomerLogin" asp-action="WithdrawCustomer">Withdraw</a>
-                        </li>
+                        </li>*@
                         <li class="nav-item ">
                             <a class="nav-link" asp-area="" asp-controller="CustomerLogin" asp-action="TransferCustomer">Transfer</a>
                         </li>
@@ -74,9 +74,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" style="background-color: #2b6dad">
-        <div class="container">
-            &copy; 2022 - project - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-light">Privacy</a>
+    <footer class="border-top footer text-muted " style="background-color: #2b6dad">
+        <div class="container text-light">
+            &copy; 2022 SRF Bank Designed and Developed by POD-D
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

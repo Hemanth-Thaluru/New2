@@ -61,7 +61,7 @@ namespace Retail_Bank_UI.Controllers
                          
                         return RedirectToAction("Index", "Admin");
                     }
-                    ViewBag.Msg = "OOPS!!Wrong Cred";
+                    ViewBag.Msg = "OOPS!!Wrong Credentials";
                 }
                
             }
@@ -82,7 +82,7 @@ namespace Retail_Bank_UI.Controllers
                         return RedirectToAction("Index","CustomerLogin",new {customerId= item.CustomerId });
                        
                     }
-                    ViewBag.Msg = "OOPS!!Wrong Cred";
+                    ViewBag.Msg = "OOPS!!Wrong Credentials";
                 }
             }
 
