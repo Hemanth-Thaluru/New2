@@ -119,9 +119,7 @@ namespace Retail_Bank_UI.Controllers
             ac1 = GetAllAccount();
             foreach (var item in ac1)
             {
-                if(transfer.Source_ACC_ID == item.Sav_AccountId)
-                {
-
+                
                     if (transfer.Source_ACC_ID == transfer.Destination_ACC_ID)
                     {
                         ViewData["message"] = "Source and Destination Account can't be same";
@@ -147,7 +145,7 @@ namespace Retail_Bank_UI.Controllers
                             }
                         }
                     
-                }
+                
             }
             ViewData["message"] = "Source or Destination Account not found";
             return View();
